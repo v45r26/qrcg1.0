@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>QRCG - MAKE QR</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="ico/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="ico/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="ico/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="ico/favicon-16x16.png">
+	<!-- <link rel="manifest" href="ico/site.webmanifest"> -->
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+<div class="m_container">
+	<div class="left_div">
+		<div class="h3">QRCG</div>
+		<form action="#" id="_form">
+			<div class="inp_fi">
+				<span class="span_f_small">UPI</span>
+				<input type="text" class="inp_fi_inp" id="_upi">
+			</div>
+
+			<div class="inp_fi">
+				<span class="span_f_small">NAME [Optional]</span>
+				<input type="text" name="" class="inp_fi_inp" id="_name">
+			</div>
+			<div class="inp_fi">
+				<span class="span_f_small">AMOUNT</span>
+				<input type="number" name="" class="inp_fi_inp" id="_amount">
+			</div>
+			<div class="inp_fi">
+				<button class="inp_fi_inp_but" id="_generate">GENERATE</button>
+			</div>
+		</form>
+	</div>
+	<div class="right_div">
+		<div class="qr_display_bx" id="qr_display_bx"></div>
+		<div class="qr_data_display">NO QR!</div>
+	</div>
+</div>
+
+<script src="qrcode.min.js"></script>
+<script type="text/javascript">
+const _form = document.querySelector('#_form'),
+	  _upi = _form.querySelector('#_upi'),
+	  _name = _form.querySelector('#_name'),
+	  _amount = _form.querySelector('#_amount'),
+	  _generate = _form.querySelector('#_generate'),
+	  qr_display_bx = document.querySelector('#qr_display_bx'),
+	  qr_data_display = document.querySelector('.qr_data_display');
+
+_form.onsubmit=(e)=>
+{
+	e.preventDefault();
+}
+
+_generate.onclick=()=>
+{
+	qr_display_bx.innerHTML = '';
+	link= create_upi_link(_upi.value,_name.value,_amount.value);
+	// console.log(link);
+	generate_qr(link,qr_display_bx);
+	// qr_data_display.innerHTML = '₹ '+_amount.value+'<br>'+link;
+	qr_data_display.innerHTML = '₹ '+_amount.value+'<br>';/*with no link*/
+}
+
+function create_upi_link(upi,name,amount)
+{
+	_link_ = 'upi://pay?pa='+upi+'&pn='+name+'&am='+amount;
+	return _link_;
+}
+
+function generate_qr(value,box)
+{
+	const qrcode = new QRCode(box, 
+	{
+		text: value,
+		width: 350,
+		height: 350,
+		colorDark : '#000',
+		colorLight : '#fff',
+		correctLevel : QRCode.CorrectLevel.H
+	});
+}
+
+</script>
+</body>
+</html>

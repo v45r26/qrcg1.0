@@ -1,0 +1,162 @@
+*
+{
+	outline: none;
+	box-sizing: border-box;
+}
+body
+{
+	margin: 0;
+	padding: 0;
+	background: #fff;
+	font-family: Helvetica;
+}
+.m_container 
+{
+    box-shadow: 0 0 10px 0 #0004;
+    position: fixed;
+    top: 100px;
+    left: 100px;
+    right: 100px;
+    bottom: 100px;
+	display: flex;
+	justify-content: space-between;
+}
+.left_div,
+.right_div
+{
+	width: 50%;
+	/* border: 1px solid #000; */
+}
+.left_div
+{
+	/* display: flex; */
+	/* flex-direction: column; */
+	/* justify-content: space-between; */
+	/* background-color: #ffffff; */
+	border-right: 1px solid #0002;
+	padding: 50px;
+}
+.left_div .h3
+{
+	/* border: 1px solid #000; */
+	text-align: center;
+	/* font-family: ; */
+	font-size: 50px;
+	margin: 0 0 50px 0;
+}
+.inp_fi
+{
+	position: relative;
+	margin:  0 0 15px 0;
+}
+.inp_fi .span_f_small
+{
+	position: absolute;
+	margin: 6px 10px;
+	color: #999;
+	font-size: 11px;
+	font-weight: 00;
+	font-family: roboto;
+	background: #fff;
+	transition: 0.3s ease;
+	top: -12px;
+	padding: 0 8px;
+}
+.inp_fi .inp_fi_inp
+{
+	background: #fff;
+	border: none;
+	box-shadow: 0 0 2px 0 #888;
+	height: 35px;
+	width: 100%;
+	color: #444;
+	font-size: 15px;
+	/* font-weight: 600; */
+	font-family: Helvetica;
+	padding: 0 10px;
+}
+.inp_fi .inp_fi_inp:focus
+{
+	border: 1px solid #07b8ff;
+	box-shadow: 0 0 0px 4px #d0f1ff;
+}
+.inp_fi input[type='number'].inp_fi_inp
+{
+	/* align-self: center; */
+	text-align: center;
+	/*width: 50%;*/
+}
+.inp_fi .inp_fi_inp_but
+{
+	background: #1c1c1c;
+	border: none;
+	box-shadow: 0 0 2px 0 #888;
+	height: 45px;
+	width: 100%;
+	color: #efefef;
+	letter-spacing: 2px;
+	font-size: 18px;
+	font-weight: 600;
+	font-family: jura;
+}
+/*.left_div .left_top_div,
+.left_div .left_bottom_div
+{
+	height: 50%;
+	width: 100%;
+}
+.left_div .left_top_div
+{
+	border-bottom: 1px solid #0002;
+	/* background-color: #f00; */
+}
+.left_div .left_bottom_div
+{
+	/* background-color: #f88; */
+}*/
+.right_div
+{
+	display: flex;
+	
+	/* background-color: #ffbc95; */
+}
+.right_div .qr_display_bx
+{
+	padding: 20px;
+	/* background: #000; */
+	display: flex;
+	justify-content: center;
+}
+.right_div .qr_data_display
+{
+	/* height: 60px; */
+	/* background: #000; */
+	display: flex;
+	justify-content: center;
+	text-align: center; 
+}
+
+/* Use a media query to add a breakpoint at 800px: */
+@media screen and (max-width: 800px) 
+{
+	.m_container 
+	{
+		position: inherit;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		flex-direction: column;
+	}
+	.left_div,
+	.right_div
+	{
+		width: 100%;
+		height: 50%;
+	}
+	.right_div
+	{
+		padding: 10px;
+		margin: 0 0 150px 0;
+	}
+}
